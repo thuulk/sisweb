@@ -1,0 +1,40 @@
+{
+  "name": "act3_implementaciondeunaapi",
+  "version": "1.0.0",
+  "description": "Online store for multiple cleaning, beuaty and skincare products",
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "mysql",
+    "rest",
+    "api"
+  ],
+  "homepage": "https://github.com/thuulk/act3_ImplementacionDeUnaApi#readme",
+  "bugs": {
+    "url": "https://github.com/thuulk/act3_ImplementacionDeUnaApi/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thuulk/act3_ImplementacionDeUnaApi.git"
+  },
+  "license": "ISC",
+  "author": "Diego Reyes",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.3.3",
+    "morgan": "^1.10.1",
+    "typescript": "^5.9.3"
+  }
+}
