@@ -1,6 +1,6 @@
 import express, {type Express, type Request, type Response} from 'express';
 import morgan from 'morgan';
-import apiRouter from './src/routes';
+import apiRouter from './src/routers/productRouters.js';
 
 /* 
     express es el framework principal que facilita la creacion
