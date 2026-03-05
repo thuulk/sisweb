@@ -26,7 +26,7 @@ app.use(morgan('dev'))
 // cuando alguien haga una peticion del tipo GET a la direccion raiz
 // se ejecutara la funcion
 app.get('/', (req:Request, res:Response) => {
-    res.send("Hello World!")
+    res.send("Algo bello pal camello!")
 })
 
 // cuando alguien haga una peticion GET a la direccion (<UrlBase>/products)
