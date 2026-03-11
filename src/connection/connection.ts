@@ -15,7 +15,6 @@ async function connectionDB() {
     try {
         await connection.authenticate();
         console.log("Conexion exitosa con la base de datos PostgreSQL")
-        await connection.sync();
     } catch (e) {
         console.log("Error al conectar con la base e datos: ", e);
     }

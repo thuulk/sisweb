@@ -27,7 +27,7 @@ const port = 3000;
 // Instruyendole al servidor que utilice morgan en modo desarrollo
 app.use(morgan('dev'));
 app.use(express.json());
-app.use('/product', apiRouter);
+app.use('/', apiRouter);
 
 connectionDB();
 

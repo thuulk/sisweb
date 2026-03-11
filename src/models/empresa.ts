@@ -16,6 +16,7 @@ interface EmpresaCreacionAtributos extends Optional<EmpresaAtributos, 'id_empres
 
 @Table({
     tableName: "empresas",
+    timestamps: false
 })
 
 export class Empresa extends Model<EmpresaAtributos, EmpresaCreacionAtributos> {
@@ -69,13 +70,7 @@ export class Empresa extends Model<EmpresaAtributos, EmpresaCreacionAtributos> {
     })
     logo!: string;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
     
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
     
 
 }
