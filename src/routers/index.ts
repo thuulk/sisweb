@@ -1,9 +1,9 @@
 import { Router, Request, Response} from 'express';
-import productRoutes from './productRouters.js';
+import empresaRouters from './empresaRouters.js';
 
 const apiRouter:Router = Router();
 
-apiRouter.use('/product', productRoutes);
+apiRouter.use('/empresa', empresaRouters);
 
 apiRouter.get('/', (req:Request, res:Response) => {
     res.send('Hello World!')

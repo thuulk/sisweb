@@ -1,6 +1,6 @@
 import express, {type Express, type Request, type Response} from 'express';
 import morgan from 'morgan';
-import apiRouter from './src/routers/productRouters.js';
+import apiRouter from './src/routers/index.js';
 import connectionDB from './src/connection/connection.js';
 
 
