@@ -33,7 +33,6 @@ export const createEmpresa: RequestHandler = (req: Request, res: Response) => {
 
 // Get All
 export const getAllEmpresas: RequestHandler = (req: Request, res: Response) => {
-
     Empresa.findAll()
         .then((data: Empresa[]) => {
             return res.status(200).json({
@@ -43,10 +42,13 @@ export const getAllEmpresas: RequestHandler = (req: Request, res: Response) => {
             });
         })
         .catch((err) => {
+            console.log("ERROR COMPLETO:", JSON.stringify(err, null, 2));
+            console.log("SQL:", err.sql);
             return res.status(500).json({
                 status: "error",
-                message: "Something happened retrieving all empresas. " + err.message,
-                payload: null,
+                message: err.message,
+                sql: err.sql,
+                original: err.original?.message,
             });
         });
 };
