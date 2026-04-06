@@ -1,4 +1,12 @@
-import { Table, Model, Column, CreatedAt, UpdatedAt, DataType } from 'sequelize-typescript'
+import { 
+    Table, 
+    Model, 
+    Column, 
+    CreatedAt, 
+    UpdatedAt, 
+    DataType, 
+    PrimaryKey 
+} from 'sequelize-typescript'
 import { Optional } from 'sequelize'
 
 interface CategoryAttributes {
@@ -14,6 +22,7 @@ interface CategoryCreationAttributes extends Optional<CategoryAttributes,'id'>{}
 
 export class Category extends Model<CategoryAttributes, CategoryCreationAttributes> {
 
+    @PrimaryKey
     @Column({
         primaryKey: true,
         autoIncrement: true,
