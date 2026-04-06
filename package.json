@@ -29,6 +29,7 @@
     "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\" "
   },
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "pg": "^8.20.0",
     "reflect-metadata": "^0.2.2",
@@ -37,6 +38,7 @@
     "sequelize-typescript": "^2.1.6"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
     "@types/node": "^25.3.4",

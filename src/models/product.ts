@@ -20,8 +20,8 @@ interface ProductCreationAttributes extends Optional<ProductAttributes,'id'>{}
 export class Product extends Model<ProductAttributes, ProductCreationAttributes> {
 
     @Column({
-        primaryKey: true,
-        autoIncrement: true,
+        PrimaryKey: true,
+        AutoIncrement: true,
         type: DataType.INTEGER
     })
     id!: number;
