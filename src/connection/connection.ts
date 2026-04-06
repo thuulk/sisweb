@@ -15,7 +15,7 @@ const connection = new Sequelize ({
 async function connectionDB() {
     try {
         // cambiar a await connection.authenticate() una vez vaya a produccion
-        await connection.sync({ alter: true });
+        await connection.authenticate();
         console.log("Conexion exitosa con la base de datos PostgreSQL")
     } catch (e) {
         console.log("Error al conectar con la base e datos: ", e);

@@ -1,5 +1,6 @@
 import { RequestHandler, Request, Response } from "express";
 import { Product } from "../models/product.js";
+import { Category } from "../models/category.js";
 
 // Create and save a new product
 export const createProduct: RequestHandler = (req:Request, res: Response) => {
@@ -38,7 +39,7 @@ export const createProduct: RequestHandler = (req:Request, res: Response) => {
 export const getAllProducts: RequestHandler = (req: Request, res: Response) => { 
   //Calling the Sequelize findAll method. This is the same that a SELECT * FROM PRODUCT in a SQL query. 
    
-   Product.findAll() 
+   Product.findAll({ include: [Category] }) 
    .then((data: Product[]) => { 
       return res.status(200).json({ 
          status: "success", 
@@ -115,7 +116,7 @@ export const getProductById: RequestHandler = (req: Request, res: Response) => {
 
 ///Delete product
 export const deleteProduct: RequestHandler = async (req: Request, res: Response): Promise<void> => { 
-    const { id } = req.body; 
+    const { id } = req.params; 
     try { 
       await Product.destroy({ where: { id } }); 
       res.status(200).json({ message: "Product deleted" }); 
