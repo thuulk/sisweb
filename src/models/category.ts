@@ -30,17 +30,15 @@ export class Category extends Model<CategoryAttributes, CategoryCreationAttribut
     })
     id!: number;
 
-    @Column({
-        type: DataType.STRING
-    })
+    @Column({ type: DataType.STRING })
     name!: string;
 
     @CreatedAt
-    @Column
+    @Column ({ type: DataType.DATE })
     createdAt!: Date;
 
     @UpdatedAt
-    @Column
+    @Column ({ type: DataType.DATE })
     updatedAt!: Date;
 
 }

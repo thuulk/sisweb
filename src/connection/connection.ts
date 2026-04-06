@@ -1,5 +1,6 @@
 import {Sequelize} from "sequelize-typescript";
-import {Empresa} from "../models/empresa.js";
+import { Category } from "../models/category.js"
+import { Product } from "../models/product.js";
 
 
 const connection = new Sequelize ({
@@ -8,12 +9,13 @@ const connection = new Sequelize ({
     username: 'sisweb_user',
     password: 'HDK#$%Ljkwerff.89',
     storage: ':memory:',
-    models: [Empresa]
+    models: [ Category, Product]
 });
 
 async function connectionDB() {
     try {
-        await connection.authenticate();
+        // cambiar a await connection.authenticate() una vez vaya a produccion
+        await connection.sync({ alter: true });
         console.log("Conexion exitosa con la base de datos PostgreSQL")
     } catch (e) {
         console.log("Error al conectar con la base e datos: ", e);

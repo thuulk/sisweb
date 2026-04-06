@@ -40,48 +40,36 @@ export class Product extends Model<ProductAttributes, ProductCreationAttributes>
     id!: number;
 
     @ForeignKey(() => Category)
-    @Column ({
-        type: DataType.INTEGER
-    })
+    @Column ({ type: DataType.INTEGER })
     categoryId!: number;
 
     @BelongsTo(() => Category)
     category!: Category;
 
-    @Column
+    @Column ({ type: DataType.STRING })
     title!: string;
 
-    @Column({
-        type: DataType.STRING
-    })
+    @Column({ type: DataType.STRING })
     description!: string;
 
-    @Column({
-        type: DataType.FLOAT
-    })
+    @Column({ type: DataType.FLOAT })
     price!: number;
 
-    @Column({
-        type: DataType.FLOAT
-    })
+    @Column({ type: DataType.FLOAT })
     discountPercentage!: number;
 
-    @Column({
-        type: DataType.FLOAT
-    })
+    @Column({ type: DataType.FLOAT })
     rating!: number;
 
-    @Column({
-        type: DataType.INTEGER
-    })
+    @Column({ type: DataType.INTEGER })
     stock!: number;
 
     @CreatedAt
-    @Column
+    @Column ({ type: DataType.DATE })
     createdAt!: Date;
 
     @UpdatedAt
-    @Column
+    @Column ({ type: DataType.DATE })
     updatedAt!: Date;
 
 }

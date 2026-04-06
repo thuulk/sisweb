@@ -25,7 +25,7 @@ export const createCategory: RequestHandler = (req: Request, res: Response) => {
         .catch((err) => {
             res.status(500).json({
                 status: "error",
-                message: "Something went wrong!",
+                message: "Something went wrong! " + err.message,
                 payload: null
             });
         });
