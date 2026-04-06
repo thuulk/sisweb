@@ -1,4 +1,4 @@
-import { Table, Model, Column, CreatedAt, UpdatedAt, DataType, AutoIncrement, PrimaryKey } from 'sequelize-typescript'
+import { Table, Model, Column, CreatedAt, UpdatedAt, DataType } from 'sequelize-typescript'
 import { Optional } from 'sequelize'
 
 interface CategoryAttributes {
@@ -15,10 +15,23 @@ interface CategoryCreationAttributes extends Optional<CategoryAttributes,'id'>{}
 export class Category extends Model<CategoryAttributes, CategoryCreationAttributes> {
 
     @Column({
-        PrimaryKey: true,
-        AutoIncrement: true;
-
-
+        primaryKey: true,
+        autoIncrement: true,
+        type: DataType.INTEGER
     })
+    id!: number;
+
+    @Column({
+        type: DataType.STRING
+    })
+    name!: string;
+
+    @CreatedAt
+    @Column
+    createdAt!: Date;
+
+    @UpdatedAt
+    @Column
+    updatedAt!: Date;
 
 }
