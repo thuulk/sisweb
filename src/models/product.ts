@@ -1,5 +1,16 @@
-import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, PrimaryKey, AutoIncrement} from 'sequelize-typescript';
-import {Optional} from 'sequelize';
+import { 
+    Table, 
+    Model, 
+    Column, 
+    CreatedAt, 
+    UpdatedAt, 
+    DataType, 
+    ForeignKey,
+    PrimaryKey,
+    BelongsTo
+} from 'sequelize-typescript';
+import { Optional } from 'sequelize';
+import { Category } from './category.js';
 
 interface ProductAttributes {
     id: number;
@@ -9,6 +20,7 @@ interface ProductAttributes {
     discountPercentage: number;
     rating: number;
     stock: number;
+    categoryId: number;
 }
 
 interface ProductCreationAttributes extends Optional<ProductAttributes,'id'>{}
@@ -19,12 +31,22 @@ interface ProductCreationAttributes extends Optional<ProductAttributes,'id'>{}
 
 export class Product extends Model<ProductAttributes, ProductCreationAttributes> {
 
+    @PrimaryKey
     @Column({
         primaryKey: true,
         autoIncrement: true,
         type: DataType.INTEGER
     })
     id!: number;
+
+    @ForeignKey(() => Category)
+    @Column ({
+        type: DataType.INTEGER
+    })
+    categoryId!: number;
+
+    @BelongsTo(() => Category)
+    category!: Category;
 
     @Column
     title!: string;
